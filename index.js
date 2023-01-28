@@ -4,12 +4,13 @@ const { errHandel } = require('./middleware/errorMiddlewar');
 const dotenv = require('dotenv').config()
 const colors = require('colors')
 const port = process.env.PORT || 5000
+const cors = require('cors')
 const connetDB = require('./config/db')
 
 const app = express();
 
 connetDB();
-
+app.use(cors())
 app.use(express.json())
 
 app.use(express.urlencoded({ extended: false }))
